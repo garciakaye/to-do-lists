@@ -35,7 +35,9 @@ function App() {
       <div className="buttonContainer">
         <button onClick={handleClick}>Add List</button>
       </div>
-      <ListContainer />
+      <ListContainer
+      lists={lists} 
+      />
     </>
   );
 }
