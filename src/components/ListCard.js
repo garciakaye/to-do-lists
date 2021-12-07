@@ -18,6 +18,7 @@ function ListCard( {list, onDeleteList} ) {
             <h2>{title}</h2>
             <button className="del-btn" onClick={handleDeleteClick}>Delete List</button>
         </div>
+        
     )
 
 }
