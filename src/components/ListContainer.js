@@ -1,11 +1,12 @@
 import React from "react";
 import ListCard from "./ListCard";
 
-function ListContainer( {lists} ){
+function ListContainer( {lists, onDeleteList} ){
     const listCards = lists.map((list) => (
         <ListCard
             key={list.id}
             list={list}
+            onDeleteList={onDeleteList}
          />
     ))
 

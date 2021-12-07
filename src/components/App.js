@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Form from "./Form";
+import NewListForm from "./NewListForm";
 import ListContainer from "./ListContainer";
 // import ToDoList from "./ToDoList";
 
@@ -23,20 +23,22 @@ function App() {
     setLists([...lists, newList])
   }
 
-  const listToDisplay = lists.map((list) => {
-    return <div key= {list.id}>{list.title}</div>
-  })
+  function handleDeleteList(deletedList) {
+    const updatedList = lists.filter((list) => list.id !== deletedList.id);
+      setLists(updatedList)
+  }
 
   
   return (
     <>
     {/* <Header /> */}
-    {showForm ? <Form onAddList={handleAddList} /> : null}
+    {showForm ? <NewListForm onAddList={handleAddList} /> : null}
       <div className="buttonContainer">
-        <button onClick={handleClick}>Add List</button>
+        <button onClick={handleClick}>Create New List</button>
       </div>
       <ListContainer
-      lists={lists} 
+      lists={lists}
+      onDeleteList={handleDeleteList} 
       />
     </>
   );
