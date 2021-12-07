@@ -14,13 +14,28 @@ function Form( {onAddList} ) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(toyData),
+          body: JSON.stringify(listData),
         })
           .then((r) => r.json())
-          .then((newToy) => onAddToy(newToy))
-    
-      }
+          .then((newList) => onAddList(newList))
+    }
+
+    return (
+        <div className="container">
+          <form className="add-list-form" onSubmit={handleSubmit}>
+            <h3>Add A New To-Do-List!</h3>
+            <input
+              type="text"
+              name="name"
+              value={newListName}
+              placeholder="Enter your list name..."
+              className="input-text"
+              onChange={(e) => setNewListName(e.target.value)}
+            />
+          </form>
+        </div>
+      );
 }
 
 
-export default FormData;
+export default Form;

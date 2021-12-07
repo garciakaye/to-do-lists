@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Form from "./Form";
-// import ToDoForm from "./ToDoForm";
+import ListContainer from "./ListContainer";
 // import ToDoList from "./ToDoList";
 
 function App() {
@@ -19,6 +19,10 @@ function App() {
     setShowForm((showForm) => !showForm);
   }
 
+  function handleAddList(newList) {
+    setLists([...lists, newList])
+  }
+
   const listToDisplay = lists.map((list) => {
     return <div key= {list.id}>{list.title}</div>
   })
@@ -26,10 +30,12 @@ function App() {
   
   return (
     <>
-    {showForm ? <Form /> : null}
+    {/* <Header /> */}
+    {showForm ? <Form onAddList={handleAddList} /> : null}
       <div className="buttonContainer">
-        <button onClick={handleClick}>Add New To-Do-List</button>
+        <button onClick={handleClick}>Add List</button>
       </div>
+      <ListContainer />
     </>
   );
 }
