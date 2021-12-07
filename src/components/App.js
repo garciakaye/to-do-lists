@@ -1,18 +1,36 @@
 import React, { useEffect, useState } from "react";
-import AdminNavBar from "./AdminNavBar";
-import ToDoForm from "./ToDoForm";
-import ToDoList from "./ToDoList";
+import Form from "./Form";
+// import ToDoForm from "./ToDoForm";
+// import ToDoList from "./ToDoList";
 
 function App() {
-  const [page, setPage] = useState("List");
+  const [showForm, setShowForm] = useState(false);
+  const [lists, setLists] = useState([]);
 
+  useEffect(() => {
+    fetch("http://localhost:9292/lists")
+      .then((r) => r.json())
+      .then((lists) => {
+        setLists(lists);
+      });
+  }, []);
  
+  function handleClick() {
+    setShowForm((showForm) => !showForm);
+  }
 
+  const listToDisplay = lists.map((list) => {
+    return <div key= {list.id}>{list.title}</div>
+  })
+
+  
   return (
-    <main>
-      <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <ToDoForm /> : <ToDoList />}
-    </main>
+    <>
+    {showForm ? <Form /> : null}
+      <div className="buttonContainer">
+        <button onClick={handleClick}>Add New To-Do-List</button>
+      </div>
+    </>
   );
 }
 
