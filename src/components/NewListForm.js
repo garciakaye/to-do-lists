@@ -2,8 +2,10 @@ import React, { useState } from "react";
 // import ListSection from "./ListSection";
 
 function NewListForm( {onAddList} ) {
-    const [newListTitle, setNewListTitle] = useState("");
-    const [formData, setFormData] = useState("")
+    // const [newListTitle, setNewListTitle] = useState("");
+    const [formData, setFormData] = useState({
+      title: ""
+    })
 
     const initialFormValues = {
         title: ""
@@ -30,19 +32,14 @@ function NewListForm( {onAddList} ) {
         })
           .then((r) => r.json())
           .then((newlyAddedList) => {
-              setNewListTitle(newlyAddedList)
+              // setNewListTitle(newlyAddedList)
               onAddList(newlyAddedList)
+              setFormData(initialFormValues)
           })
-          setFormData(initialFormValues)
+          // setFormData(initialFormValues)
     }
 
-    // const renderListCard = list => (
-    //     <ListCard
-    //         key={list.id}
-    //         list={list} 
-    //     />
-    // )
-
+  
 
     return (
         <div className="container">
