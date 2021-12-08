@@ -2,23 +2,23 @@ import React, { useState } from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import NewItemForm from "./NewItemForm";
 
-function ListSection( {list, onDeleteList} ) {
+function ListSection( {list, onDeleteList, onAddItemToList} ) {
     const [showForm, setShowForm] = useState(false);
 
     const { id, title, items} = list
 
 
-    const newToDo = items.map((item) => (
-        <ul>{item.name}</ul>
+    const dislayItems = items.map((item) => (
+        <ul key={item.id}>{item.name}</ul>
     ))
 
     function handleNewItemClick() {
         setShowForm((showForm) => !showForm);
     }
 
-   function handleAddNewToDo(){
+//    function handleAddNewItem(newItem){
 
-   }
+//    }
 
 
   
@@ -37,25 +37,20 @@ return (
         <Col>
             <Card border="dark" className="card">
                 <Card.Header className="card-header">{title}
-                {/* <Button list-id={list.id} className="btn-group-sm" variant="none" onClick={handleDeleteClick}>Delete List</Button> */}
+                    {showForm ? <NewItemForm listId={list.id} onAddItemToList={onAddItemToList}/> : null}
+                     <div className="add-item-btn">
+                        <button onClick={handleNewItemClick}>➕</button>
+                    </div>
                 </Card.Header>
                 <Card.Body> 
-                    {newToDo}
+                    {dislayItems}
                 </Card.Body>
                 <Button list-id={list.id} className="btn-group-lg" variant="none" onClick={handleDeleteClick}>Delete List</Button>
             </Card>
         </Col>
     </Row>
-    {showForm ? <NewToDoForm /> : null}
-    </>
-
-        // <div className="list-card">
-        //     <h2>{title}</h2>
-        //     <button className="del-btn" onClick={handleDeleteClick}>Delete List</button>
-        // </div>
-        
+    </> 
 )
-
 }
 
 

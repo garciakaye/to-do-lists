@@ -24,6 +24,17 @@ function App() {
     setLists([...lists, newList])
   }
 
+  function handleAddItemToList(listId, newItem) {
+    const listToUpdate = lists.find((list) => list.id === listId);
+    listToUpdate.items = [...listToUpdate.items, newItem]
+    const objToUpdateIndex = lists.findIndex((list) => list.id === listId)
+    const newState = [...lists]
+    newState[objToUpdateIndex] = listToUpdate
+    setLists(newState)
+  }
+
+
+
   function handleDeleteList(deletedList) {
     const updatedList = lists.filter((list) => list.id !== deletedList.id);
       setLists(updatedList)
@@ -39,11 +50,9 @@ function App() {
       </div>
       <ListContainer
       lists={lists}
-      onDeleteList={handleDeleteList} 
+      onDeleteList={handleDeleteList}
+      onAddItemToList={handleAddItemToList}
       />
-      {/* <ToDoItems
-      lists={lists}
-      /> */}
     </>
   );
 }
