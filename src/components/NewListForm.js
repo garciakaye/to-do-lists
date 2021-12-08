@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ListCard from "./ListCard";
+import ListCard from "./ListSection";
 
 function NewListForm( {onAddList} ) {
     const [newListTitle, setNewListTitle] = useState("");
@@ -36,12 +36,12 @@ function NewListForm( {onAddList} ) {
           setFormData(initialFormValues)
     }
 
-    const renderListCard = list => (
-        <ListCard
-            key={list.id}
-            list={list} 
-        />
-    )
+    // const renderListCard = list => (
+    //     <ListCard
+    //         key={list.id}
+    //         list={list} 
+    //     />
+    // )
 
 
     return (
@@ -59,10 +59,7 @@ function NewListForm( {onAddList} ) {
             <br />
             <button className="add-list-btn" type="submit">Add List</button>
             </form>
-            {newListTitle.id
-            ? renderListCard(newListTitle)
-            : null
-            }
+          
         </div>
     );
 }

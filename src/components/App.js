@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import NewListForm from "./NewListForm";
 import ListContainer from "./ListContainer";
 // import ToDoItems from "./ToDoItems";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [showForm, setShowForm] = useState(false);

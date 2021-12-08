@@ -1,9 +1,10 @@
 import React from "react";
-import ListCard from "./ListCard";
+import ListSection from "./ListSection";
+import { Container } from "react-bootstrap";
 
 function ListContainer( {lists, onDeleteList} ){
     const listCards = lists.map((list) => (
-        <ListCard
+        <ListSection
             key={list.id}
             list={list}
             onDeleteList={onDeleteList}
@@ -12,7 +13,9 @@ function ListContainer( {lists, onDeleteList} ){
 
     return (
         <div id="list-collection">
+            <Container fluid>
             {listCards}
+            </Container>
         </div>
     )
 }
