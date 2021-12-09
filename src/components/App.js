@@ -38,6 +38,12 @@ function App() {
     const newItems = listToUpdate.items.filter((item) => item.id !== newItem.id)
     // const deleteItemId = newItems.filter
     listToUpdate.items = newItems
+    
+    fetch(`http://localhost:9292/items/${newItem.id}`, {
+      method: "DELETE"})
+      .then((r) => r.json())
+    
+
     // finding the index of the list
     const objToUpdateIndex = lists.findIndex((item) => item.id === listId)
     const newState = [...lists]

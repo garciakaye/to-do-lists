@@ -1,30 +1,36 @@
 import React, { useState } from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import NewItemForm from "./NewItemForm";
-import ItemList from "./ItemList";
+// import ItemList from "./ItemList";
 
 function ListSection( {list, onDeleteList, onAddItemToList, onDeleteItemFromList} ) {
     const [showForm, setShowForm] = useState(false);
 
     const { id, title, items} = list
-
+    
 
     const dislayItems = items.map((item) => (
-        <ItemList 
-            key={item.id}
-            item={item}
-            onDeleteItemFromList={onDeleteItemFromList}
-        />
+        <ul key={item.id}>
+            {item.name}
+            <button className="done-btn" onClick={() => onDeleteItemFromList(id, item)}>✔️</button>
+        </ul>
     ))
 
+    // const dislayItems = items.map((item) => (
+    //     <ItemList
+    //         key={item.id}
+    //         item={item}
+    //         onDeleteItemFromList={onDeleteItemFromList}
+    //         // <button className="done-btn">✔️</button>
+        
+    //     />
+    // ))
+
+    
     function handleNewItemClick() {
         setShowForm((showForm) => !showForm);
     }
 
-
-
-
-  
 
     function handleDeleteClick(){
         fetch(`http://localhost:9292/lists/${id}`, {
@@ -32,13 +38,13 @@ function ListSection( {list, onDeleteList, onAddItemToList, onDeleteItemFromList
         })
           .then((r) => r.json())
           .then(() => onDeleteList(list));
-      }
+    }
 
       
 
 return (
     <>
-    <Row key={list.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12" fluid>
+    <Row key={list.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <Col>
             <Card border="dark" className="list-card">
                 <Card.Header className="card-header">{title}
@@ -47,8 +53,10 @@ return (
                         <button onClick={handleNewItemClick}>➕</button>
                     </div>
                 </Card.Header>
-                <Card.Body> 
+                <Card.Body>
+                    {/* <ul>  */}
                     {dislayItems}
+                    {/* </ul> */}
                 </Card.Body>
                 <Button list-id={list.id} className="btn-group-lg" variant="none" onClick={handleDeleteClick}>Delete List</Button>
             </Card>
