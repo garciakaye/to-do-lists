@@ -1,6 +1,6 @@
 import React from "react";
 import ListSection from "./ListSection";
-import { Container } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 
 function ListContainer( {lists, onDeleteList, onAddItemToList, onDeleteItemFromList} ){
     const listCards = lists.map((list) => (
@@ -14,11 +14,9 @@ function ListContainer( {lists, onDeleteList, onAddItemToList, onDeleteItemFromL
     ))
 
     return (
-        <div id="list-collection">
-            <Container fluid>
-            {listCards}
-            </Container>
-        </div>
+        <Container id="list-collection" >
+        {listCards}     
+        </Container>
     )
 }
 

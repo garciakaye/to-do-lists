@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewListForm from "./NewListForm";
 import ListContainer from "./ListContainer";
-// import ToDoItems from "./ToDoItems";
+import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

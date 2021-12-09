@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Container, Card, Row, Col, Button } from "react-bootstrap";
 import NewItemForm from "./NewItemForm";
 // import ItemList from "./ItemList";
 
@@ -9,22 +9,12 @@ function ListSection( {list, onDeleteList, onAddItemToList, onDeleteItemFromList
     const { id, title, items} = list
     
 
-    const dislayItems = items.map((item) => (
+    const displayItems = items.map((item) => (
         <ul key={item.id}>
             {item.name}
             <button className="done-btn" onClick={() => onDeleteItemFromList(id, item)}>✔️</button>
         </ul>
     ))
-
-    // const dislayItems = items.map((item) => (
-    //     <ItemList
-    //         key={item.id}
-    //         item={item}
-    //         onDeleteItemFromList={onDeleteItemFromList}
-    //         // <button className="done-btn">✔️</button>
-        
-    //     />
-    // ))
 
     
     function handleNewItemClick() {
@@ -43,9 +33,9 @@ function ListSection( {list, onDeleteList, onAddItemToList, onDeleteItemFromList
       
 
 return (
-    <>
-    <Row key={list.id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-        <Col>
+    
+    // <Row key={list.id} className="'row-cols-1 row-cols-md-3 g-4'">
+    //     <Col>
             <Card border="dark" className="list-card">
                 <Card.Header className="card-header">{title}
                     {showForm ? <NewItemForm listId={list.id} onAddItemToList={onAddItemToList}/> : null}
@@ -54,15 +44,13 @@ return (
                     </div>
                 </Card.Header>
                 <Card.Body>
-                    {/* <ul>  */}
-                    {dislayItems}
-                    {/* </ul> */}
+                    {displayItems}
                 </Card.Body>
                 <Button list-id={list.id} className="btn-group-lg" variant="none" onClick={handleDeleteClick}>Delete List</Button>
             </Card>
-        </Col>
-    </Row>
-    </> 
+    //     </Col>
+    // </Row>
+    
 )
 }
 
