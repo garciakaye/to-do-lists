@@ -18,3 +18,5 @@ https://user-images.githubusercontent.com/88004335/145486479-192ba000-99dd-4184-
 
 https://user-images.githubusercontent.com/88004335/145487471-ef9dc612-f035-4fe0-bb64-ff61e02245ff.mp4
 
+## License
+> Distributed under the MIT License. 
