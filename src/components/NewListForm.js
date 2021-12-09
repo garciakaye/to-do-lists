@@ -42,9 +42,8 @@ function NewListForm( {onAddList} ) {
   
 
     return (
-        <div className="container">
+        <div className="form-container">
             <form className="add-list-form" onSubmit={handleSubmit}>
-            <h3>Add A New To-Do-List!</h3>
                 <input
                 type="text"
                 name="title"

@@ -62,8 +62,8 @@ function App() {
     <>
     <Header />
     {showForm ? <NewListForm onAddList={handleAddList} /> : null}
-      <div className="create-new-list-btn">
-        <button onClick={handleClick}>Create New List</button>
+      <div className="create-new-list">
+        <button className="create-new-list-btn" onClick={handleClick}>Create New List</button>
       </div>
       <ListContainer
       lists={lists}
