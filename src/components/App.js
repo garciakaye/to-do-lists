@@ -33,7 +33,17 @@ function App() {
     setLists(newState)
   }
 
-
+  function handleDeleteItemFromList(listId, newItem) {
+    const listToUpdate = lists.find((list) => list.id === listId);
+    const newItems = listToUpdate.items.filter((item) => item.id !== newItem.id)
+    // const deleteItemId = newItems.filter
+    listToUpdate.items = newItems
+    // finding the index of the list
+    const objToUpdateIndex = lists.findIndex((item) => item.id === listId)
+    const newState = [...lists]
+    newState[objToUpdateIndex] = listToUpdate
+    setLists(newState)
+  }
 
   function handleDeleteList(deletedList) {
     const updatedList = lists.filter((list) => list.id !== deletedList.id);
@@ -45,13 +55,14 @@ function App() {
     <>
     {/* <Header /> */}
     {showForm ? <NewListForm onAddList={handleAddList} /> : null}
-      <div className="buttonContainer">
+      <div className="create-new-list-btn">
         <button onClick={handleClick}>Create New List</button>
       </div>
       <ListContainer
       lists={lists}
       onDeleteList={handleDeleteList}
       onAddItemToList={handleAddItemToList}
+      onDeleteItemFromList={handleDeleteItemFromList}
       />
     </>
   );

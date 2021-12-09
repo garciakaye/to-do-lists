@@ -37,6 +37,8 @@ function NewItemForm( {listId, onAddItemToList}) {
             
     }
 
+    
+
     return (
         <div className="new-item-container">
             <form className="add-new-item-form" onSubmit={handleSubmit}>
