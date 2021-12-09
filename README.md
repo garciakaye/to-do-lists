@@ -3,3 +3,4 @@
 
 ## Features
 ### Create New List
+> A new to-do list can be added by clicking on the 'Create New List' button, which toggles to show or hide the form, and typing the title of the list in the input field. When the 'Add List' is clicked on, the new list will render on the page and get saved to the database.
