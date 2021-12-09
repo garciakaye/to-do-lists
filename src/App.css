@@ -58,16 +58,19 @@ h1 {
   flex-wrap: wrap;
 }
 
+#list-collection {
+  justify-content: space-evenly
+}
 
 .card {
   text-align: left;
   border: grey solid 1px;
   padding: 1rem;
   width: 15rem;
-  height: 25rem;
+  height: 20rem;
   display: inline-grid;
   margin: 1rem 2rem;
-  box-shadow: 3px 4px #e04b52;
+  box-shadow: 3px 4px rgb(16, 13, 56);
 }
 
 .card-header {
@@ -77,4 +80,65 @@ h1 {
 
 .list-card {
   margin: 2rem;
+}
+
+.add-item-btn{
+  float: left;
+  position: relative;
+  border: none;
+  height: 1rem;
+  width: max-content;
+  font-size: 10px;
+  justify-self: center;
+}
+
+.add-new-item-btn {
+  position: relative;
+  background-color: rgb(16, 13, 56);
+  border: none;
+  border-radius: 5px;
+  height: 1rem;
+  width: max-content;
+  color: whitesmoke;
+  font-size: 10px;
+  justify-self: center;
+}
+
+.btn-group-sm {
+  float: right;
+  position: relative;
+  border: none;
+  height: 1rem;
+  width: max-content;
+  font-size: 10px;
+  justify-self: center;
+}
+
+.new-item-input-text {
+  position: relative;
+  justify-self: center;
+  width: 80%;
+}
+
+.done-btn {
+  float: right;
+  position: relative;
+  /* background-color: rgb(16, 13, 56); */
+  border: none;
+  border-radius: 5px;
+  height: 1rem;
+  width: max-content;
+  color: rgb(255, 255, 255);
+  font-size: 8px;
+  justify-self: center;
+}
+
+.to-do-items {
+  text-align: left;
+  font-size: x-small;
+  padding:0%
+}
+
+.card-body {
+  padding: 20em;
 }

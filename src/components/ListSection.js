@@ -10,7 +10,7 @@ function ListSection( {list, onDeleteList, onAddItemToList, onDeleteItemFromList
     
 
     const displayItems = items.map((item) => (
-        <ul key={item.id}>
+        <ul className="to-do-items" key={item.id}>
             {item.name}
             <button className="done-btn" onClick={() => onDeleteItemFromList(id, item)}>✔️</button>
         </ul>
@@ -39,14 +39,15 @@ return (
             <Card border="dark" className="list-card">
                 <Card.Header className="card-header">{title}
                     {showForm ? <NewItemForm listId={list.id} onAddItemToList={onAddItemToList}/> : null}
-                     <div className="add-item-btn">
-                        <button onClick={handleNewItemClick}>➕</button>
+                     <div className="add-item">
+                        <button className="add-item-btn" onClick={handleNewItemClick}>➕</button>
+                        <button className="btn-group-sm" onClick={handleDeleteClick}>🗑️</button>
                     </div>
                 </Card.Header>
-                <Card.Body>
+                <Card.Body className="card-body">
                     {displayItems}
                 </Card.Body>
-                <Button list-id={list.id} className="btn-group-lg" variant="none" onClick={handleDeleteClick}>Delete List</Button>
+                {/* <Button list-id={list.id} className="btn-group-sm" variant="none" onClick={handleDeleteClick}>Delete List</Button> */}
             </Card>
     //     </Col>
     // </Row>
