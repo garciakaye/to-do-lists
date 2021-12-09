@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NewListForm from "./NewListForm";
 import ListContainer from "./ListContainer";
+import Header from "./Header";
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -59,7 +60,7 @@ function App() {
   
   return (
     <>
-    {/* <Header /> */}
+    <Header />
     {showForm ? <NewListForm onAddList={handleAddList} /> : null}
       <div className="create-new-list-btn">
         <button onClick={handleClick}>Create New List</button>
